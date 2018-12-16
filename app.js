@@ -9,8 +9,11 @@ var app = express();
 const mongoose = require('mongoose');
 const Employee = require('./schemas/employee')
 
+var parameter = "SERVER_URL";
+var server = process.env[parameter] || "localhost";
+
 mongoose.connection.close();
-mongoose.connect('mongodb://localhost:27017/employees');
+mongoose.connect('mongodb://' + server + ':27017/employees');
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
