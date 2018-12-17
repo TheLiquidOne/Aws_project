@@ -3,7 +3,7 @@ extends layout
 block content
     h1= title
     #employees
-        - each employee in employees
+        each employee in employees
           div.employee
             div.created_at= employee.created_at
             div.title= employee.title 
